@@ -3,6 +3,7 @@ from src.time_series.pipeline.data_ingestion_pipeline import DataIngestionTraini
 from src.time_series.pipeline.data_validation_pipeline import DataValidationPipeline
 from src.time_series.pipeline.data_transformation_pipeline import DataTransformationPipeline
 from src.time_series.pipeline.model_training_pipeline import ModelTrainingPipeline
+from src.time_series.pipeline.model_evaluation_pipeline import ModelEvaluationPipeline
 
 
 STAGE_NAME="Data Ingestion Stage"
@@ -46,6 +47,14 @@ except Exception as e:
     logger.exception(e)
     raise e
 
+STAGE_NAME="Model Evaluation Stage"
 
-
+try:
+    logger.info(f">>>>>>> stage {STAGE_NAME} started <<<<<<<")
+    model_eval_pipeline = ModelEvaluationPipeline()
+    model_eval_pipeline.InitiateModelEvaluation()
+    logger.info(f">>>>>>> stage {STAGE_NAME} completed <<<<<<<\n\nx==========x")
+except Exception as e:
+    logger.exception(e)
+    raise e
 

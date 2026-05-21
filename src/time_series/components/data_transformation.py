@@ -82,5 +82,6 @@ class DataTransformation:
 
         valid_data = df[df["date"] >= split_date]
 
+        df.to_csv(os.path.join(self.config.root_dir,"combined.csv"),index = False)
         train_data.to_csv(os.path.join(self.config.root_dir,"training.csv"), index = False)
         valid_data.to_csv(os.path.join(self.config.root_dir,"valid.csv"), index = False)

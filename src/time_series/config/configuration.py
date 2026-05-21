@@ -83,6 +83,6 @@ class ConfigurationManager:
             model_path=config.model_path,
             metric_file_name=config.metric_file_name,
             target_column= schema.name,
-            mlflow_uri= 
+            mlflow_uri= "https://dagshub.com/Hemachander002/Store-Sales---Time-Series-Forecasting.mlflow"
         )
         return model_evaluation_config
