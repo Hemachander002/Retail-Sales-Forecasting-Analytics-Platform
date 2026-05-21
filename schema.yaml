@@ -1,0 +1,10 @@
+COLUMNS:
+  id: int64 
+  date: object
+  store_nbr: int64 
+  family: object
+  onpromotion: int64
+  sales: float64
+TARGET:
+  name : sales
+

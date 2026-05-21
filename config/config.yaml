@@ -1,0 +1,38 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  train_source: data/train.csv
+  main_source: data/test.csv
+  holiday_source: data/holidays_events.csv
+  stores_source: data/stores.csv
+  transaction_source: data/transactions.csv
+  oil_source: data/oil.csv
+  local_data_file: artifacts/data_ingestion/data.csv
+
+data_validation:
+  root_dir: artifacts/data_validation
+  unzip_data_dir: artifacts/data_ingestion/train.csv
+  STATUS_FILE: artifacts/data_validation/status.txt
+  all_schema : schema.yaml
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  data_path: artifacts/data_ingestion/train.csv
+  holiday_source: data/holidays_events.csv
+  stores_source: data/stores.csv
+  transaction_source: data/transactions.csv
+  oil_source: data/oil.csv
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+  train_data_path: artifacts/data_transformation/training.csv
+  valid_data_path: artifacts/data_transformation/valid.csv
+  label_encoder_path: artifacts/data_transformation/label_encoder.joblib
+  model_name: model.joblib
+
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  test_data_path: artifacts/data_transformation/valid.csv
+  model_path: artifacts/model_trainer/model.joblib
+  metric_file_name: artifacts/model_evaluation/metrics.json
